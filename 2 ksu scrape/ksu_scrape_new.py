@@ -60,3 +60,4 @@ i = 1
 while i < 10:
     scrape_ksu('https://www.kennesaw.edu/news/news-releases/index.php?&p=',str(i))
     i += 1
+
