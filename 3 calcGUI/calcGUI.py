@@ -1,5 +1,6 @@
 from tkinter import *
 from math import sqrt as sqr
+from math import sin as Sin, cos as Cos, tan as Tan
 
 
 class Calculator(Frame):
@@ -74,6 +75,10 @@ class Calculator(Frame):
         e = e.replace("²", "**2")
         e = e.replace("^", "**")
         e = e.replace("÷", "/")
+        e = e.replace("sin", "Sin")
+        e = e.replace("cos", "Cos")
+        e = e.replace("tan", "Tan")
+
 
         try:
             ans = eval(e)
@@ -123,7 +128,7 @@ class Calculator(Frame):
         master.bind("7", lambda event, char="7", btn=self.seven_bttn: self.add_chr(char, btn))
         master.bind("6", lambda event, char="6", btn=self.six_bttn: self.add_chr(char, btn))
         master.bind("5", lambda event, char="5", btn=self.five_bttn: self.add_chr(char, btn))
-        master.bind("4", lambda event, char="DT", btn=self.four_bttn: self.add_chr(char, btn))
+        master.bind("4", lambda event, char="4", btn=self.four_bttn: self.add_chr(char, btn))
         master.bind("3", lambda event, char="3", btn=self.three_bttn: self.add_chr(char, btn))
         master.bind("2", lambda event, char="2", btn=self.two_bttn: self.add_chr(char, btn))
         master.bind("1", lambda event, char="1", btn=self.one_bttn: self.add_chr(char, btn))
@@ -144,6 +149,15 @@ class Calculator(Frame):
         Creates the widgets to be used in the grid.
         :return: None
         """
+        self.eq_bttn = Button(self, text="sin", width=9, height=3, command=lambda: self.add_chr('sin('))
+        self.eq_bttn.grid(row=1, column=8)
+
+        self.eq_bttn = Button(self, text="cos", width=9, height=3, command=lambda: self.add_chr('cos('))
+        self.eq_bttn.grid(row=2, column=8)
+
+        self.eq_bttn = Button(self, text="tan", width=9, height=3, command=lambda: self.add_chr('tan('))
+        self.eq_bttn.grid(row=3, column=8)
+
         self.eq_bttn = Button(self, text="=", width=20, height=3, bg="lightgrey", command=lambda: self.calculate())
         self.eq_bttn.grid(row=4, column=4, columnspan=2)
 
@@ -186,7 +200,7 @@ class Calculator(Frame):
         self.six_bttn = Button(self, text="6", width=9, height=3, command=lambda: self.add_chr(6))
         self.six_bttn.grid(row=2, column=2)
 
-        self.one_bttn = Button(self, text="1", width=9, height=3, command=lambda: self.add_chr(1))
+        self.one_bttn = Button(self, text="Quang", width=9, height=3, command=lambda: self.add_chr('Huynh'))
         self.one_bttn.grid(row=3, column=0)
 
         self.two_bttn = Button(self, text="2", width=9, height=3, command=lambda: self.add_chr(2))
