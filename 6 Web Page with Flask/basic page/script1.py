@@ -26,5 +26,9 @@ def home():
 def about():
     return render_template("about.html")
 
+@app.route('/quang/')
+def quang():
+    return render_template("quang.html")
+
 if __name__=="__main__":
     app.run(debug=True)
