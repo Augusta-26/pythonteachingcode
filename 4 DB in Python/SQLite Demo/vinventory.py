@@ -10,11 +10,12 @@ import datetime
 #if you code is not connecting to the DB, uncomment the next three lines and read the comments. Also, you may need \ instead of / before the DB file name in windows
 import os
 path_root = os.path.dirname(os.path.abspath(__file__)) #grab the file system path to the current script file
-#print("Here is the PATH_ROOT",path_root)
+print("Here is the PATH_ROOT",path_root)
 database_file_path = str(path_root)+"/myinventory.db" #construct the path to the database file (only necessary if the current working directory is not the same as the folder where this Python file is located.)
 print("HERE is the database file:", database_file_path)
 #if you uncomment the three lines above, be sure to comment out this next line
 #database_file_path = "myinventory.db"
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by the db_file
@@ -27,6 +28,21 @@ def create_connection(db_file):
     except Error as e:
         print(e)
         return None
+                                 
+def view_data():
+    try:
+        cursor = conn.execute ("SELECT id,name, ndc,location,availability,arrivaldate, expirationdate,changemade FROM vaccines" )
+        alldata = []
+        alldata.append(["ID","Name","NDC","Location","Availability","Arrival Date","Expiration Date","Last Update"])
+        for row in cursor:
+            thisrow=[]
+            for x in range(8):
+                thisrow.append(row[x])
+            alldata.append(thisrow)
+        return alldata
+    except Error as e:
+        print (e)
+        pass
 
 def insert_data():
     name = input("Enter the name of the item: ")
@@ -44,21 +60,6 @@ def insert_data():
             print("*** Data saved to database. ***")
     except Error as e:
         print ("*** Insert error: ",e)
-        pass
-                                 
-def view_data():
-    try:
-        cursor = conn.execute ("SELECT id,name, ndc,location,availability,arrivaldate, expirationdate,changemade FROM vaccines" )
-        alldata = []
-        alldata.append(["ID","Name","NDC","Location","Availability","Arrival Date","Expiration Date","Last Update"])
-        for row in cursor:
-            thisrow=[]
-            for x in range(8):
-                thisrow.append(row[x])
-            alldata.append(thisrow)
-        return alldata
-    except Error as e:
-        print (e)
         pass
 
 def update_data():
