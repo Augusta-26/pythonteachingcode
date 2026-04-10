@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: rgb(12, 12, 12);
+  color: rgb(62, 27, 158);
 }
 
 /*
@@ -11,17 +11,17 @@ body {
 
 header {
   background-color: #85efed;
-  height: 70px;
+  height: 100px;
   width: 100%;
   opacity: .9;
-  margin-bottom: 200px;
-  margin-left: 0px;
+  margin-bottom: 150px;
+  margin-left: 70px;
 }
 
 header h1.logo {
   margin: 0;
   font-size: 1.7em;
-  color: #0a0909;
+  color: #b93939;
   text-transform: uppercase;
   float: left;
 }
@@ -36,12 +36,12 @@ header h1.logo:hover {
  */
 
 .container {
-  width: 1100px;
+  width: 900px;
   margin: 0 auto;
 }
 
-div.home {
-  padding: 10px 0 30px 0;
+.home {
+  padding: 50px 0 50px 0;
   background-color: rgb(150, 17, 150);
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
