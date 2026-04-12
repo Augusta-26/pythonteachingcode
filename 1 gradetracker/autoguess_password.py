@@ -43,9 +43,7 @@ while ''.join(guess) != pass_word: # join function combines elements of a list i
 print(f"\nPassword cracked in {try_total} tries!")
 
 '''
-Version With Uppercase + Numbers
-'''
-'''
+
 Version With Uppercase + Numbers
 '''
 import random
